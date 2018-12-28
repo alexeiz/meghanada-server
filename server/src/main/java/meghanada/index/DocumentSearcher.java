@@ -94,7 +94,7 @@ public class DocumentSearcher implements AutoCloseable {
     if (nonNull(this.indexWriter)) {
       try {
         this.indexWriter.close();
-      } catch (IOException e) {}
+      } catch (Exception e) {}
     }
 
     this.indexWriter = null;
