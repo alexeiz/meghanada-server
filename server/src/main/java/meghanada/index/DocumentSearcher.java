@@ -90,10 +90,13 @@ public class DocumentSearcher implements AutoCloseable {
     return this.indexSearcher;
   }
 
-  public void closeIndexWriter() throws IOException {
+  public void closeIndexWriter() {
     if (nonNull(this.indexWriter)) {
-      this.indexWriter.close();
+      try {
+        this.indexWriter.close();
+      } catch (IOException e) {}
     }
+
     this.indexWriter = null;
   }
 
